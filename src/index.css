@@ -8,3 +8,17 @@
     width: 3rem; 
     height: 3rem;
 }
+
+.active-cell{
+    background-color: #55FF33;
+}
+.active-area , .active-row{
+    background-color: #42ecf5;
+}
+
+.wrong-step{
+    background-color: darkred;
+}
+.help{
+    background: dodgerblue !important;
+}

@@ -1,17 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Wrapper } from '../styles/components';
 import { Board } from './Board';
 import { Timer } from './Timer';
 import { Controlls } from './Controlls';
-const Wrapper = styled.section`
-     margin:12px auto;
-`;
 
-export const Game = () =>
-    (
+export const Game = () => {
+    return (
         <Wrapper>
             <Timer />
             <Board />
             <Controlls />
         </Wrapper>
     );
+}
+

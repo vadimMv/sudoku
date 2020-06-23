@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { Game } from './components/Game';
 import { StartPage } from './components/StartPage';
-import {ResultPage} from './components/ResultPage';
+import { ResultPage } from './components/ResultPage';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AppProvider } from './context/GlobalState';
 
 function App() {
     return (
@@ -19,4 +20,8 @@ function App() {
     )
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(
+    <AppProvider>
+        <App />
+    </AppProvider>
+    , document.getElementById('app'));

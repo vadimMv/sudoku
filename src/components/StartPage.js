@@ -1,31 +1,43 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { Modal } from './parts/Modal';
-import styled from 'styled-components';
-const Button = styled.button`
-  background:  "palevioletred" : "white";
-  color:  "white" : "palevioletred";
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`;
+import { ButtonStart } from '../styles/components';
 export const StartPage = () => {
-    const [modal, setModal] = useState(false);
+    const history = useHistory();
+    const [modal, setModal] = useState({
+        open: false,
+        resposne: false,
+    });
+
+    const modalClose = (response = false) => {
+        setModal({
+            open: false,
+            resposne: response
+        });
+    }
+
+    const openClick = e => {
+        setModal({
+            open: true,
+            resposne: false
+        });
+    }
 
 
-    // return <Redirect to="/game" />;
+    if (modal.resposne) {
+        return <Redirect to="/game" />;
+    }
+
     return (<>
-        <Modal open={modal}
-            handleClose={() => setModal(false)} />
+        <Modal open={modal.open}
+            handleClose={modalClose} />
         <div className="container">
             <div className="row">
                 <div className="col">
-                    <Button onClick={() => setModal(true)}>New Game</Button>
+                    <ButtonStart onClick={openClick}>New Game</ButtonStart>
                 </div>
                 <div className="col">
-                    <Button>Result Page</Button>
+                    <ButtonStart onClick={e => history.push("/result")}>Result Page</ButtonStart>
                 </div>
             </div>
         </div>

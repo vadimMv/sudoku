@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open  --host 0.0.0.0"
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      "@babel/preset-env", 
       "@babel/preset-react"
     ]
   },
@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.8.7",
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
